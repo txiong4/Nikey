@@ -1,0 +1,142 @@
+body { font-family: sans-serif;
+     background-image:url("images/background.jpg");
+     background-repeat:no-repeat;
+     height:100%;
+     background-position:center;
+     background-size:cover;
+     color: #41494C; }
+h1 {height: 85px;
+    padding-top:30px;
+    padding-left:0.25em;
+    font-family:sans-serif;
+    background-color: #FFFFFF;
+    color: #000000;
+    margin-bottom: 0;
+    margin-top: 0;
+    letter-spacing:0.25em;
+background-image: url("images/icon.png");
+background-size: 80px;
+background-repeat: no-repeat;
+background-position: left;
+line-height: 250%;
+text-indent: 2.5em; }
+h2 {color: #41494C;
+font-family: sans-serif;
+text-align: center;
+}
+body.ul {
+     margin:0;
+     padding-left:0;
+     font-size:1.2em;}    
+
+main { background-color:#FFFFFF;
+       padding-top:1px;
+       padding-right:20px;
+       padding-bottom:20px;
+       padding-left:30px;
+       display:block;
+       margin-left:190px;
+       margin-right:190px;
+	
+ }
+table {border:solid 2px #3399CC;
+       border-collapse: collapse; }
+tr:nth-of-type(odd){background-color:#41494C;
+                    color:#FB9B23}
+th { padding:0.5em;
+border:solid 2px #333333;}
+td {text-align:center;
+padding:0.5em;
+border:solid 2px #41494C;}
+footer {font-family: sans-serif;
+    text-align: center;
+    font-size: 75%;
+    font-style: italic;
+color: #666666;
+    background:#FFFFFF;
+    margin-left:190px;
+    padding:20px;
+    float:none; }
+a:link {text-decoration: none;
+color: #FB9B23;
+    transition: color 1s ease-in;
+}
+a:visited { color:#DA8F16;
+}
+a:hover{color:#FF5D17;
+        background-color:#333333}
+footer {font-family: sans-serif;
+text-align: center;
+font-style: italic;
+font-size: 75%;
+color: #666666;
+    padding:20px;
+    margin-left:190px;
+    float:none; }
+.icon   { display: inline-block;}
+.middle { vertical-align: middle; }
+#characterlist{font-size:200%;
+text-align: left;
+}
+#wrapper {
+background-color: #41494C;
+margin:auto;
+width: 80%;
+border:1px #000033;
+background-repeat: no-repeat;
+min-width:960px;
+max-width:2048px;
+box-shadow: 3px 3px #333333
+}
+.navbar {
+    overflow: hidden;
+    background-color: #41494C;
+    font-family: sans-serif;
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+* {box-sizing:border-box; }
+    @media only screen and (max-width: 64em)  { body {margin:0;
+                                            background-color:#FFFFFF;}
+                                            header{padding-top:0.5em;
+                                                   padding-bottom:0.5em;
+                                                   padding-left:0;
+                                                   height:auto; }
+                                            footer {margin-left:0; }
+                                            h1{letter-spacing:.01em; }
+                                            main{margin-left:0; }
+                                            nav{float:none;
+                                                width: auto;
+                                                text-align:center;
+                                                padding:0.5em;}
+                                               nav li {
+                                                display:inline;
+                                                padding-top:0.25em;
+                                                padding-bottom:0.25em;
+                                                padding-left:0.75em;
+                                                padding-right:0.75em;
+                                                }
+                                            #wrapper {min-width: 0;
+                                                      width:auto;
+                                                      box-shadow: none;
+                                                      border:none; }
+    @media only screen and (max-width: 37.5em) { main {padding-top:0.1em;
+                                                 padding-bottom:0.1em;
+                                                 padding-left:1em;
+                                                 padding-right:1em;
+                                                 font-size:90%;}
+                                            nav{padding:0;}
+                                            nav li{display:block;
+                                                   margin:0;
+                                                   border-bottom:2px #330000;}
+                                            label{float:none;
+                                                  text-align:left; }
+                                            input[type="submit"]
+                                            {margin-left:0; }
+                                            nav:link{display:block;}
