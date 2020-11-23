@@ -1,5 +1,13 @@
 const express = require("express");
 const path = require("path");
+const mysql = require("mysql2");
+
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'Password',
+  database: 'nicholsconstruction'
+});
 
 const app = express();
 
@@ -40,6 +48,35 @@ app.get("/services", (req, res) => {
   res.render("services")
 })
 
+app.get("/register", (req, res) => {
+  res.render("register")
+})
+
+app.get("/siding", (req, res) => {
+  res.render("siding")
+})
+
+app.get("/roofing", (req, res) => {
+  res.render("roofing")
+})
+
+app.get("/framing", (req, res) => {
+  res.render("framing")
+})
+
+app.get("/flooring", (req, res) => {
+  res.render("flooring")
+})
+
+app.post("/login", (req, res) => {
+  const { user, password } = req.body;
+  res.send(`username is ${user} and pass is ${password}`);
+});
+
+app.post("/register", (req, res) => {
+  const { username, pass1, pass2 } = req.body;
+  connection.query(`insert into account values (?, ?)`, [username, pass1]);
+}) 
 
 app.listen(port, () => {
   console.log(`Listening on port http://localhost:${port}`)

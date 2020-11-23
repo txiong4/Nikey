@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Siding</title>
+<meta charset="utf-8">
+<link href="construction1.css" rel="stylesheet">
+<meta name="viewport" content= "width=device-width, initial-scale=1.0">
+<meta name="description" content="This is the website for Nichols construction owned and run by Jerry Nichols">
+</head>
+<body>
+<div id="wrapper">
+<header>
+ <h1>Nichols Construction</h1>
+</header>
+<nav>
+<div class="navbar">
+<a href="/">Home</a>
+<a href="/services">Services</a>
+<a href="/orders">Orders</a>
+<a href="/login">Log In</a>
+</div>
+</div>
+</div>
+</nav>
+<main>
+
+<h2> Services</h2>
+ <p>The rate is $50 for all work per hour</p>
+ 	
+ <form onsubmit="return false" oninput="amount.value = (((feet.valueAsNumber * 8)+((feet.valueAsNumber/80)*50))* 0.10)+(feet.valueAsNumber * 8)+((feet.valueAsNumber/80)*50)">
+  <legend>Wood Siding</legend>
+
+  <p><label for="feet">Total feet</label>
+  <input type="number" min="0" id="feet" name="feet"></p>
+  <p>$8 per sqr foot. Estimating 80 sqr feet can be done in an hour.</p>
+ 
+
+
+  <p>Total: <strong>$<output name="amount" for="hours rate vat">0</output></strong></p>
+</form>                                                   
+<form onsubmit="return false" oninput="amount.value = (((feet.valueAsNumber * 2)+((feet.valueAsNumber/80)*50))* 0.10)+(feet.valueAsNumber * 2)+((feet.valueAsNumber/80)*50)">
+  <legend>Vinyl Siding</legend>
+
+  <p><label for="feet">Total feet</label>
+  <input type="number" min="0" id="feet" name="feet"></p>
+  <p>$2 per sqr foot. Estimating 80 sqr feet can be done in an hour.</p>
+
+ 
+
+
+  <p>Total: <strong>$<output name="amount" for="hours rate vat">0</output></strong></p>
+</form>  
+
+
+<footer>
+  For more information contact <a href="mailto:jerrynichols655@gmail">Jerrynichols@gmail.com</a>
+  <br>
+  Phone: (479) 264-8223
+  <br>
+  Last updated november/22/2020
+</footer>
+</main>
+</div>
+</body>
+</html>

@@ -19,6 +19,7 @@
 <a href="/products">Products</a>
 <a href="/orders">Orders</a>
 <a href="/login">Log in</a>
+<a href="/register">Register</a>
 </div>
 </div>
 </div>
@@ -26,38 +27,26 @@
 <main>
 
 <h2> Services</h2>
-<p> This is where I describe the genreal scope of services</p>
-<li class="body">Example service (wood siding with made up numbers)<br>
-This is where I would describe how we perform these services and how the price is decided.<br>
-<p>Loose estimate</p>
+<li class="body"><a href="/siding">Siding</a>
+<li class="body"><a href="/flooring">Flooring</a>
+<li class="body"><a href="/framing">Framing(Turn Key)</a>
+<li class="body"><a href="/roofing">Roofing</a><br>
+<li class="body">Other services
+<p>Wooden structural Trusses: $5 per running foot</p>  
+<p>All remodels, Barns, Carports, and other similar services have to be built on site. This means that we can not give you a rough estimate here.
+Please contact us at <a href="mailto:jerrynichols655@gmail">Jerrynichols@gmail.com</a> or call (479)254-8223 to get an estamite for these services.</p><br>
+                       
 
-
-<form onsubmit="return false" oninput="amount.value = ((feet.valueAsNumber * rate.valueAsNumber)* 0.10)+(feet.valueAsNumber * rate.valueAsNumber)">
-  <legend>Wooden Siding</legend>
-
-  <p><label for="feet">Total feet</label>
-  <input type="number" min="0" id="feet" name="feet"></p>
-
-  <p><label for="rate">Rate</label>
-  <span>$</span><input type="number" min="40" max="90" id="rate" name="rate"></p>
-<p> This too will not bee here it's just to demo how it's doing it's math. For the actual site it will be put in the same as the 10% Just feet will be inputted by the user
-
-  <p> This service is cost 10 so the price is multiplied by 10% and then added to the price per feet. (This is a reminder it won't actually be on the page)</p>
-
-
-  <p>Total: <strong>$<output name="amount" for="hours rate vat">0</output></strong></p>
-</form>                                                   
-
-<output id="amount" name="amount" for="rangeInput"></output>
 
 <footer>
-  For more information contact jerrynichols.655@gmail.com
+  For more information contact <a href="mailto:jerrynichols655@gmail">Jerrynichols@gmail.com</a>
   <br>
   Phone: (479) 264-8223
   <br>
   Last updated november/22/2020
 </footer>
 </main>
+
 </div>
 </body>
 </html>

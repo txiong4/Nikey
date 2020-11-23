@@ -19,16 +19,17 @@
     <a href="/products">Products</a>
     <a href="/orders">Orders</a>
     <a href="/login">Log in</a>
+    <a href="/register">Register</a>
   </div>
   </div>
   </div>
 </nav>
 <main>
-  <form action="login.php" method="post">
+  <form action="/login" method="post">
     <label for="">Username</label>
-    <input required type="text">
+    <input required type="text" name="user">
     <label required for="">Password</label>
-    <input type="password" name="" id="">
+    <input type="password" name="password">
     <button type="submit">Login</button>
   </form>
   <footer>
