@@ -4,25 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
+  <link href="/construction1.css" rel="stylesheet">
 </head>
-<body>
-  <form action="/register" method="post">
-    <label>Username</label>
-    <br>
-    <input required type="text" name="username" id="">
-    <br>
+<body id="wrapper">
+  <nav>
+    <div class="navbar">
+      <a href="/">Home</a>
+      <a href="/services">Services offered</a>
+      <a href="/products">Products</a>
+      <a href="/orders">Orders</a>
+      <a href="/login">Log in</a>
+      <a href="/register">Register</a>
+    </div>
+    </div>
+    </div>
+  </nav>
+  <main>
+    <form action="/register" method="post">
+      <label>Username</label>
+      <br>
+      <input required type="text" name="username" id="">
+      <br>
 
-    <label>Password</label>
-    <br>
-    <input required type="password" value="" name="pass1">
-    <br>
+      <label>Password</label>
+      <br>
+      <input required type="password" value="" name="pass1">
+      <br>
 
-    <label>Confirm Password</label>
-    <br>
-    <input required type="password" value="" name="pass2">
-    <br>
-    <br>
-    <button type="submit">Register</button>
-  </form>
+      <label>Confirm Password</label>
+      <br>
+      <input required type="password" value="" name="pass2">
+      <br>
+      <br>
+      <button type="submit">Register</button>
+      <% if (errors && errors === "username") { %>
+        <p style="color: red">Username already exists</p>
+      <% } %>
+    </form>
+  </main>
 </body>
 </html>

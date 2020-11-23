@@ -31,6 +31,9 @@
     <label required for="">Password</label>
     <input type="password" name="password">
     <button type="submit">Login</button>
+    <% if (errors === "noUserName" || errors === "badPassword") { %>
+      <p style="color: red;">invalid credentials</p>
+    <% } %>
   </form>
   <footer>
     For more information contact jerrynichols.655@gmail.com

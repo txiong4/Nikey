@@ -1,6 +1,8 @@
 const express = require("express");
 const path = require("path");
 const mysql = require("mysql2");
+const session = require("express-session");
+const MySQLStore = require("express-mysql-session")(session);
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -15,6 +17,14 @@ const port = process.env.PORT || 8000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
+app.use(session({
+  secret: "some_secret",
+  resave: true,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 1800000
+  }
+}))
 app.use(express.static(path.join(__dirname, "public")));
 
 // Set templating engine to EJS
@@ -27,55 +37,113 @@ app.set("view engine", "ejs");
 
 // Home route
 app.get("/", (req, res) => {
-  res.render("home");
+  res.render("home", {
+    errors: {}
+  })
 });
 
 // Login route
 app.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login", {
+    errors: {}
+  })
 })
 
 // orders route
 app.get("/orders", (req, res) => {
-  res.render("orders")
+  res.render("orders", {
+    errors: {}
+  })
 });
 
 app.get("/products", (req, res) => {
-  res.render("products")
+  res.render("products", {
+    errors: {}
+  })
 });
 
 app.get("/services", (req, res) => {
-  res.render("services")
+  res.render("services", {
+    errors: {}
+  })
 })
 
 app.get("/register", (req, res) => {
-  res.render("register")
+  res.render("register", {
+    errors: {}
+  })
 })
 
 app.get("/siding", (req, res) => {
-  res.render("siding")
+  res.render("siding", {
+    errors: {}
+  })
 })
 
 app.get("/roofing", (req, res) => {
-  res.render("roofing")
+  res.render("roofing", {
+    errors: {}
+  })
 })
 
 app.get("/framing", (req, res) => {
-  res.render("framing")
+  res.render("framing", {
+    errors: {}
+  })
 })
 
 app.get("/flooring", (req, res) => {
-  res.render("flooring")
+  res.render("flooring", {
+    errors: {}
+  })
 })
 
 app.post("/login", (req, res) => {
   const { user, password } = req.body;
-  res.send(`username is ${user} and pass is ${password}`);
+  connection.query(`select * from account where username = ?`, [user], (err, results) => {
+    let found = false;
+    let usr;
+    for(let i = 0; i< results.length; i++) {
+      if(results[i].username === user) {
+        if(password === results[i].password) {
+          usr = results[i];
+          found = true;
+          break;
+        }
+      }
+    }
+    if(!found) {
+      return res.status(404).render("login", {
+        errors: "noUserName"
+      });
+    }
+    req.session.user = usr.username
+    return res.render("orders");
+  });
 });
 
 app.post("/register", (req, res) => {
   const { username, pass1, pass2 } = req.body;
-  connection.query(`insert into account values (?, ?)`, [username, pass1]);
+  connection.query(`select * from account;`, (err, results) => {
+    if(err) {
+      console.error(err);
+      return res.status(500).json({ message: "could not insert into account db"})
+    }
+    for(let i = 0; i < results.length; i++) {
+      if(results[i].username === username) {
+        return res.status(409).render("register", {
+          errors: "username"
+        })
+      }
+    }
+    connection.query(`INSERT INTO Account(username, password) Values(?,?)`, [username, pass1], (err, results) => {
+      if(err) {
+        console.error(err);
+        return res.status(500).json({ message: "could not insert into account db"})
+      }
+    });
+    return res.send("OK!");
+  });
 }) 
 
 app.listen(port, () => {
