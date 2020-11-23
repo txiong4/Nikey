@@ -51,9 +51,38 @@ app.get("/login", (req, res) => {
 
 // orders route
 app.get("/orders", (req, res) => {
-  res.render("orders", {
-    errors: {}
-  })
+  if(req.session.user) {
+    // if logged in
+    connection.query(`select * from orders where userid = ?;`, [req.session.user], (err, results) => {
+      let orderId = [];
+      if(err) {
+        console.error(err);
+        return res.status(500);
+      }
+      let orderId_ = results[0].orderid;
+      for(let i = 0; i < results.length; i++) {
+        orderId.push(results[i].itemid); // add item ids to orderId list
+      }
+      let orders = [];
+      connection.query(`select * from item where itemid = ?`, [orderId[0]], (err, results) => {
+        if(err) {
+          console.error(err)
+        }
+        for(let i = 0; i < results.length; i++) {
+          orders.push(results[i])
+        }
+        console.log(orders)
+        return res.render("user_orders", {
+          id: orderId_,
+          orders: orders
+        });
+      });
+    })
+  } else {
+    res.render("orders", {
+      errors: {}
+    })
+  }
 });
 
 app.get("/products", (req, res) => {
@@ -117,10 +146,32 @@ app.post("/login", (req, res) => {
         errors: "noUserName"
       });
     }
-    req.session.user = usr.username
-    return res.render("orders");
+    req.session.user = usr.userid
+    console.log(req.session.user)
+    return res.redirect("/orders");
   });
 });
+
+app.get("/orders/:id", (req, res) => {
+  const { id: orderId } = req.params;
+  connection.query(`select * from orders where orderid = ?`, [orderId], (err, results) => {
+    if(err) {
+      console.error(err)
+      return res.sendStatus(500)
+    }
+    const itemid = results[0].itemid;
+    connection.query(`select * from item where itemid = ?`, [itemid], (err, results2) => {
+      res.json({
+        order: results, item: results2
+      })
+    })
+  })
+});
+
+app.get("/logout", (req, res) => {
+  req.session.destroy();
+  res.redirect("/");
+})
 
 app.post("/register", (req, res) => {
   const { username, pass1, pass2 } = req.body;
@@ -142,7 +193,9 @@ app.post("/register", (req, res) => {
         return res.status(500).json({ message: "could not insert into account db"})
       }
     });
-    return res.send("OK!");
+    return res.render("register", {
+      errors: {}
+    });
   });
 }) 
 
