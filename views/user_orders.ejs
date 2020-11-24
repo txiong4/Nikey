@@ -16,7 +16,6 @@
 <div class="navbar">
 <a href="/">Home</a>
 <a href="/services">Services offered</a>
-<a href="/products">Products</a>
 <a href="/orders">Orders</a>
 <a href="/login">Log in</a>
 <a href="/register">Register</a>
@@ -27,7 +26,8 @@
 <main>
 <h2>Orders</h2>
 <% orders.forEach(element => { %>
-  <a href="/orders/<%- id %>"><%- element.item_name %></a>
+  <a href="/orders"></a><%- element.item_name %></a>
+  <a href=<%- element.item_name %></a>
 <% }) %>
 </main>
 </div>

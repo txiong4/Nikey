@@ -1,6 +1,7 @@
-CREATE TABLE Account (
 
-    userid   varchar(50) primary key Not Null,
+
+CREATE TABLE Account (
+    userid   integer primary key  Auto_increment,
     username varchar(60) not null,
     password VARCHAR (60) NOT NULL
 );
@@ -11,7 +12,7 @@ CREATE TABLE customers (
     customer_Fname VARCHAR (20) NOT NULL,
     customer_Lname VARCHAR (20) NOT NULL,
     customer_Phone INT (11)     NOT NULL,
-    userid      varchar(50)     NOT NULL,
+    userid      integer     NOT NULL,
     CONSTRAINT FK_userid FOREIGN KEY (
         userid
     )
@@ -26,7 +27,7 @@ CREATE TABLE item (
 );
 CREATE TABLE orders (
     orderid    INTEGER  PRIMARY KEY AUTO_INCREMENT,
-    userid     varChar(60)    NOT NULL,
+    userid     integer    NOT NULL,
     itemid     Integer    NOT NULL,
     customerid Integer    NOT NULL,
     CONSTRAINT FK_userid2 FOREIGN KEY (

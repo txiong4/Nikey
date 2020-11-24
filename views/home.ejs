@@ -19,14 +19,31 @@ img {
 <header>
  <h1>Nichols Construction</h1>
 </header>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
 <nav>
 <div class="navbar">
-<a href="/">Home</a>
-<a href="/services">Services</a>
-<a href="/products">Products</a>
-<a href="/orders">Orders</a>
-<a href="/login">Log In</a>
-<a href="/register">Register</a>
+    <a href="/">Home</a>
+    <a href="/services">Services</a>
+    <a href="/orders">Orders</a>
+    <a href="/login">Log in</a>
+    <a href="/register">Register</a>
 </div>
 </div>
 </div>
@@ -35,9 +52,9 @@ img {
 
 <h2> About Nichols construction</h2>
 <p> Nichols construction is made up of hard working individuals who want to help others live out thier dreams in their own comfortable space.
- If you need a remodel or a new home, anything is possible. This is a family owned business who puts people first. We build for you.</p><br>
-<img src="images/client.jpg" width="400" height= "400" alt="Owner"><br>
-<p> Hi, I am Jerry Nichols owner of Nichols Construction. I have been in construction for the last 20 years. I will
+ If you need a remodel or a new home, anything is possible. This is a family owned business who puts people first. We build for you.</p>
+
+<p> <img src="images/client.jpg" width="300" height= "300" alt="Owner" >Hi, I am Jerry Nichols owner of Nichols Construction. I have been in construction for the last 20 years. I will
 use my expertise to help you in any way I can.</p>
 <footer>
   For more information contact <a href="mailto:jerrynichols655@gmail">Jerrynichols@gmail.com</a>

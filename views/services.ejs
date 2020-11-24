@@ -12,14 +12,32 @@
 <header>
  <h1>Nichols Construction</h1>
 </header>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
 <nav>
 <div class="navbar">
-<a href="/">Home</a>
-<a href="/services">Services offered</a>
-<a href="/products">Products</a>
-<a href="/orders">Orders</a>
-<a href="/login">Log in</a>
-<a href="/register">Register</a>
+    <a href="/">Home</a>
+    <a href="/services">Services</a>
+    <a href="/orders">Orders</a>
+    <a href="/login">Log in</a>
+    <a href="/register">Register</a>
+
 </div>
 </div>
 </div>
@@ -27,16 +45,26 @@
 <main>
 
 <h2> Services</h2>
-<li class="body"><a href="/siding">Siding</a>
-<li class="body"><a href="/flooring">Flooring</a>
-<li class="body"><a href="/framing">Framing(Turn Key)</a>
-<li class="body"><a href="/roofing">Roofing</a><br>
+<li class="body"><a href="siding.html">Siding</a>
+<li class="body"><a href="flooring.html">Flooring</a>
+<li class="body"><a href="framing.html">Framing(Turn Key)</a>
+<li class="body"><a href="roofing.html">Roofing</a><br>
 <li class="body">Other services
 <p>Wooden structural Trusses: $5 per running foot</p>  
 <p>All remodels, Barns, Carports, and other similar services have to be built on site. This means that we can not give you a rough estimate here.
 Please contact us at <a href="mailto:jerrynichols655@gmail">Jerrynichols@gmail.com</a> or call (479)254-8223 to get an estamite for these services.</p><br>
-                       
-
+<p>Here are some pictures of our work</p>                       
+<div class="row">
+  <div class="column">
+    <img src="images/house5.png" alt="House1" style="width:100%" style="height:50%">
+  </div>
+  <div class="column">
+    <img src="images/house2.png" alt="Construction" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="images/house4.png" alt="House3" style="width:100%">
+  </div>
+</div>
 
 <footer>
   For more information contact <a href="mailto:jerrynichols655@gmail">Jerrynichols@gmail.com</a>
@@ -46,7 +74,6 @@ Please contact us at <a href="mailto:jerrynichols655@gmail">Jerrynichols@gmail.c
   Last updated november/22/2020
 </footer>
 </main>
-
 </div>
 </body>
 </html>

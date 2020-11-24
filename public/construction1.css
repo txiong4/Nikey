@@ -8,7 +8,7 @@ body { font-family: sans-serif;
      color: #41494C; }
 h1 {height: 85px;
     padding-top:30px;
-    padding-left:14.25em;
+    padding-left:1.25em;
     font-family:sans-serif;
     background-color: #fc863e;
     color: #000000;
@@ -18,7 +18,7 @@ h1 {height: 85px;
     background-image: url("images/icon.png");
     background-size: 120px;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: left;
     line-height: 250%;
     text-indent: 2.5em; }
 h2 {color: #41494C;
